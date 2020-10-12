@@ -18,6 +18,10 @@
          $email =$_POST ['email'];
          $cell =$_POST['cell'];
          $uname =$_POST['uname'];
+         $age =$_POST['age'];
+         $gender =$_POST['gender'];
+         $shift =$_POST['shift'];
+         $location =$_POST['location'];
         
     }
     
@@ -74,32 +78,30 @@
 					</div>
 					<div class="form-group">
 						<label for="">Gender</label><br>
-						<input name="gender" class="" type="radio" id="male"><label for="male">Male</label>
-						<input name="gender" class="" type="radio" id="female"><label for="female">Female</label>
+						<input name="gender" class="" type="radio" value="male" id="male" checked="checked"><label for="male">Male</label>
+						<input name="gender" class="" type="radio" value="female" id="female"><label for="female">Female</label>
 					</div>
 					<div class="form-group">
 						<label for="">Shift</label>
-						<select class="form-control" name="" id="">
+						<select class="form-control" name="shift" id="">
 						    <option value=""> - Select - </option>
-						    <option value="">Day shift</option>
-                            <option value="">Evening Shift</option>
-                            
-                            
+						    <option value="day" >Day shift</option>
+                            <option value="evening">Evening Shift</option>                
 						</select>
 					</div>
 					
 					<div class="form-group">
 						<label for="">Location</label>
-						<select class="form-control" name="" id="">
+						<select class="form-control" name="location" id="">
 						    <option value=""> - Select - </option>
-						    <option value="">Dhaka</option>
-                            <option value="">Barisal</option>
-                            <option value="">Khulna</option>
-                            <option value="">Chittagong</option>
-                            <option value="">Rajshahi</option>
-                            <option value="">Rongpur</option>
-                            <option value="">Sylhet</option>
-                            <option value="">Mymenshing</option>
+						    <option value="dhaka">Dhaka</option>
+                            <option value="barisal">Barisal</option>
+                            <option value="khulna">Khulna</option>
+                            <option value="chittagong">Chittagong</option>
+                            <option value="rajshahi">Rajshahi</option>
+                            <option value="rongpur">Rongpur</option>
+                            <option value="sylhet">Sylhet</option>
+                            <option value="mymenshing">Mymenshing</option>
                             
 						</select>
 					</div>
