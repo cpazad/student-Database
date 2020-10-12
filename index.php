@@ -1,3 +1,8 @@
+
+<?php
+require_once "app/autoload.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +32,7 @@
     
 //    Form Validation
     
-    if (empty($name)||empty($email)||empty($cell)||empty($uname)) {
+    if (empty($name)||empty($email)||empty($cell)||empty($uname) || empty($age) || empty($gender) || empty($shift) || empty($location)) {
       
         $mesg = '<p class= "alert alert-danger">All fields are required!<button class="close" data-dismiss="alert">&times;</button></p>';  
     }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
