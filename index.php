@@ -34,13 +34,13 @@ require_once "app/autoload.php";
     
     if (empty($name)||empty($email)||empty($cell)||empty($uname) || empty($age) || empty($gender) || empty($shift) || empty($location)) {
       
-        $mesg = '<p class= "alert alert-danger">All fields are required!<button class="close" data-dismiss="alert">&times;</button></p>';  
+        $mesg= validationMsg('All fields are required', 'warning');  
     }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-       $mesg = '<p class= "alert alert-danger">Invaid Email Address!<button class="close" data-dismiss="alert">&times;</button></p>'; 
+       $mesg = validationMsg('Invalid Email address', 'info'); 
     }
     
     else{
-       $mesg = '<p class= "alert alert-success">All Set</p>'; 
+       $mesg = validationMsg('All Set', 'success'); 
     }
     
     
