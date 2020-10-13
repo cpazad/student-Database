@@ -27,31 +27,45 @@ require_once "app/autoload.php";
          $gender =$_POST['gender'];
          $shift =$_POST['shift'];
          $location =$_POST['location'];
-        
+         $file_name = $_FILES['photo']['name'];
+         $file_tmp_name = $_FILES['photo']['tmp_name'];
+        $file_size = $_FILES['photo']['size'];
+        $unique_file_name = md5(time() . rand()) . $file_name;
     }
+    
+    // photo file upload
+    
+    
+    
+    
+    
+    
     
 //    Form Validation
     
     if (empty($name)||empty($email)||empty($cell)||empty($uname) || empty($age) || empty($gender) || empty($shift) || empty($location)) {
       
-        $mesg= validationMsg('All fields are required', 'warning');  
+        $mesg= validationMsg('All fields are required');  
     }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-       $mesg = validationMsg('Invalid Email address', 'info'); 
+       $mesg = validationMsg('Invalid Email address', 'warning'); 
+    }elseif($age <=5 || $age >=12){
+        $mesg= validationMsg('Unsupported Age group', 'info');
+    }else{
+      $connection -> query("INSERT INTO students(name, email, cell, uname, age, gender, shift, location, photo ) VALUES('$name', '$email', '$cell', '$uname', '$age', '$gender', '$shift', '$location','$unique_file_name')");
+        
+        move_uploaded_file($file_tmp_name, 'Photo/Student/' . $unique_file_name);           
+        
+        $mesg= validationMsg('Data Received', 'success'); 
     }
     
-    else{
-       $mesg = validationMsg('All Set', 'success'); 
-    }
-    
-    
-    
-    
+       
     ?>
 	
 	
 
-	<div class="wrap shadow">
-		<div class="card">
+	<div class="wrap">
+	<a class="btn btn-sm btn-primary" href="students.php">All Students</a>
+		<div class="card shadow">
 			<div class="card-body">
 				<h2>Sign Up</h2>
 				<?php
